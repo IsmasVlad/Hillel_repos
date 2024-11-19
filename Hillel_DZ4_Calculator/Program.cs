@@ -1,45 +1,51 @@
-﻿class Program
+﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+
+class Program
 {
     static void Main()
     {
-        // Ask the user to enter two numbers
-        Console.WriteLine("Enter the first number:");
-        double firstNumber = Convert.ToDouble(Console.ReadLine());
-
-        Console.WriteLine("Enter the second number:");
-        double secondNumber = Convert.ToDouble(Console.ReadLine());
-
-        // We ask what mathematical operation the user wants to perform
-        Console.WriteLine("Enter operation (+, -, *, /):");
-        string operation = Console.ReadLine();
-
-        switch (operation)
+        try
         {
-            case "+":
-                Console.WriteLine(firstNumber + secondNumber);
-                break;
-            case "-":
-                Console.WriteLine(firstNumber - secondNumber);
-                break;
-            case "*":
-                Console.WriteLine(firstNumber * secondNumber);
-                break;
-            case "/":
-                // Check for division by zero
-                if (secondNumber != 0)
-                {
-                    Console.WriteLine($"Solution: {firstNumber / secondNumber}");
-                }
-                else
-                {
-                    Console.WriteLine(firstNumber + secondNumber);
-                }
-                break;
+            // Ask the user to enter two numbers
+            Console.WriteLine("Enter the first number:");
+            int firstNumber = Convert.ToInt32(Console.ReadLine());
 
-            default:
-                Console.WriteLine("Unknown operation");
-                break;
-        }      
+            Console.WriteLine("Enter the second number:");
+            int secondNumber = Convert.ToInt32(Console.ReadLine());
+
+            // We ask what mathematical operation the user wants to perform
+            Console.WriteLine("Enter operation (+, -, *, /):");
+            string operation = Console.ReadLine();
+
+            switch (operation)
+            {
+                case "+":
+                    Console.WriteLine(firstNumber + secondNumber);
+                    break;
+                case "-":
+                    Console.WriteLine(firstNumber - secondNumber);
+                    break;
+                case "*":
+                    Console.WriteLine(firstNumber * secondNumber);
+                    break;
+                case "/":
+                    Console.WriteLine(firstNumber / secondNumber);
+                    break;
+            }
+        }
+        catch (DivideByZeroException)
+        {
+            Console.WriteLine("Error division by zero is impossiblee!");
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Error: Please enter valid numeric values.");
+        }
+        finally
+        {
+            Console.WriteLine("The program is complete");
+        }
+
     }
 }
 
