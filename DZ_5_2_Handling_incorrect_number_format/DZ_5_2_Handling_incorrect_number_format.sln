@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34316.72
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DZ_5_2_Handling_incorrect_number_format", "DZ_5_2_Handling_incorrect_number_format.csproj", "{81E48A50-AFE9-43FD-B895-D8886B610436}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81E48A50-AFE9-43FD-B895-D8886B610436}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81E48A50-AFE9-43FD-B895-D8886B610436}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81E48A50-AFE9-43FD-B895-D8886B610436}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81E48A50-AFE9-43FD-B895-D8886B610436}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1ADA0CF8-EB9B-47C7-A541-A253810A76CD}
+	EndGlobalSection
+EndGlobal
