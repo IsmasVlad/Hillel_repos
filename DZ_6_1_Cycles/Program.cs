@@ -12,7 +12,7 @@ class Program
 
         Console.WriteLine("Enter the employee's salary. To finish, enter 'stop'.");
 
-        while (true)
+        while (employeeCount>=0)
         {
             Console.Write($"Employee salary #{employeeCount + 1}: ");
             string input = Console.ReadLine();
@@ -77,7 +77,7 @@ class Program
 //Просте число - це число, яке ділиться лише на 1 і на себе.
 
 
-/*
+
 class Program
 {
     static void Main()
@@ -91,12 +91,12 @@ class Program
         {
             bool isPrime = true; // A variable to check if a number is prime
 
-            for (int j = 2; j < i; j++) // We check the divisibility of the number i
+            for (int j = 2; j <= Math.Sqrt(i); j++) // We check only up to √i
             {
                 if (i % j == 0) // If a number is divisible without a remainder, it is not prime
                 {
-                    isPrime = false; 
-                    break; 
+                    isPrime = false;
+                    break;
                 }
             }
 
@@ -108,7 +108,7 @@ class Program
     }
 }
 
-*/
+
 
 //4. Перевірка паролю: 
 //Напишіть програму, яка перевіряє пароль користувача.
@@ -120,16 +120,40 @@ class Program
 {
     static void Main()
     {
-        string password; 
+        string password;
+        string specialCharacters = "!@#$%^&*()_-+=<>?/\\|{}[]~`";
 
-        do
+        while (true)
         {
-            Console.WriteLine("Enter the correct password:");
-            password = Console.ReadLine(); 
-        }
-        while (password != "1234567@"); 
+            Console.WriteLine("Enter the password:");
+            password = Console.ReadLine();
 
-        Console.WriteLine("Password is correct!"); 
+
+                if (password.Length < 8)
+                {
+                    Console.WriteLine("The password must be at least 8 digits long. Try again!");
+
+                    continue;
+                }
+                if (!password.Any(char.IsDigit))
+                {
+                    Console.WriteLine("The password must contain at least one digit. Try again");
+
+                    continue;
+                }
+            
+                if (!password.Any(c => specialCharacters.Contains(c)))
+
+                {
+                    Console.WriteLine("The password must contain at least one character. Try again");
+                    continue;
+                }
+
+                Console.WriteLine("Password is correct.");
+                break;
+
+                          
+        }
     }
 }
 */
@@ -208,7 +232,7 @@ class Program
 //Напишіть програму, яка перевіряє, чи є задане користувачем число простим.
 //Число вважається простим, якщо воно ділиться лише на 1 і на себе.
 
-
+/*
 class Program
 {
     static void Main()
@@ -234,3 +258,7 @@ class Program
         Console.WriteLine("Prime");
     }
 }
+*/
+
+
+
