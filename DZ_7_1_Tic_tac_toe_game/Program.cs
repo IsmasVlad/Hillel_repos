@@ -68,7 +68,7 @@
                 Console.Write(" " + array[i, j] + " ");
 
                 // Додаємо вертикальні лінії між клітинками, окрім останньої
-                if (j < array.GetLength(1) -1)
+                if (j < array.GetLength(1) - 1)
                     Console.Write("|");
             }
             Console.WriteLine(); // Перехід на новий рядок
