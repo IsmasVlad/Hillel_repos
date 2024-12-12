@@ -61,36 +61,116 @@ class Program
 */
 
 // ДЗ 10.1. Перевiрити ім’я та прізвище.
+//class Program
+//{
+//    static void Main()
+//    {
+
+//        Console.WriteLine("Enter your first and last name (separated by a space):");
+//        string fullName = Console.ReadLine();
+
+
+//        string[] nameParts = fullName.Split(' ');
+
+
+//        if (nameParts.Length == 2)
+//        {
+//            string firstName = nameParts[0];
+//            string lastName = nameParts[1];
+
+
+//            if (char.ToUpper(firstName[0]) == char.ToUpper(lastName[0]))
+//            {
+//                Console.WriteLine("Last name starts with the same letter as first name");
+//            }
+//            else
+//            {
+//                Console.WriteLine("Last name does not start with the same letter as first name");
+//            }
+//        }
+//        else
+//        {
+//            Console.WriteLine("Please enter a correct first and last name.");
+//        }
+//    }
+//}
+
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+
 class Program
 {
     static void Main()
     {
-        
-        Console.WriteLine("Enter your first and last name (separated by a space):");
-        string fullName = Console.ReadLine();
+        // Загаданное слово
+        string word = "програмування";
 
-        
-        string[] nameParts = fullName.Split(' ');
+        // Используем коллекции
+        HashSet<char> guessedLetters = new HashSet<char>(); // Угаданные буквы
+        HashSet<char> wrongLetters = new HashSet<char>();   // Неправильные буквы
+        Dictionary<char, List<int>> letterPositions = new Dictionary<char, List<int>>(); // Позиции букв
+        StringBuilder hiddenWord = new StringBuilder(new string('_', word.Length)); // Скрытое слово
+        int attempts = 6; // Количество попыток
 
-        
-        if (nameParts.Length == 2)
+        // Инициализация словаря позиций
+        for (int i = 0; i < word.Length; i++)
         {
-            string firstName = nameParts[0];
-            string lastName = nameParts[1];
+            char letter = word[i];
+            if (!letterPositions.ContainsKey(letter))
+                letterPositions[letter] = new List<int>();
+            letterPositions[letter].Add(i);
+        }
 
-            
-            if (char.ToUpper(firstName[0]) == char.ToUpper(lastName[0]))
+        Console.WriteLine("Добро пожаловать в игру 'Шибениця'!");
+
+        while (attempts > 0 && hiddenWord.ToString().Contains('_'))
+        {
+            // Вывод текущего состояния игры
+            Console.WriteLine($"\nСлово: {hiddenWord}");
+            Console.WriteLine($"Осталось попыток: {attempts}");
+            Console.WriteLine($"Угаданные буквы: {string.Join(", ", guessedLetters)}");
+            Console.WriteLine($"Ошибочные буквы: {string.Join(", ", wrongLetters)}");
+            Console.Write("Введите букву: ");
+            char guess = Console.ReadKey().KeyChar;
+            Console.WriteLine();
+
+            // Проверка, была ли буква уже введена
+            if (guessedLetters.Contains(guess) || wrongLetters.Contains(guess))
             {
-                Console.WriteLine("Last name starts with the same letter as first name");
+                Console.WriteLine("Вы уже вводили эту букву.");
+                continue;
+            }
+
+            // Проверка буквы
+            if (letterPositions.ContainsKey(guess))
+            {
+                Console.WriteLine("Правильно!");
+                guessedLetters.Add(guess);
+
+                // Открываем буквы в скрытом слове
+                foreach (int position in letterPositions[guess])
+                {
+                    hiddenWord[position] = guess;
+                }
             }
             else
             {
-                Console.WriteLine("Last name does not start with the same letter as first name");
+                Console.WriteLine("Неправильно!");
+                wrongLetters.Add(guess);
+                attempts--;
             }
+        }
+
+        // Завершение игры
+        if (!hiddenWord.ToString().Contains('_'))
+        {
+            Console.WriteLine($"\nПоздравляем! Вы угадали слово: {word}!");
         }
         else
         {
-            Console.WriteLine("Please enter a correct first and last name.");
+            Console.WriteLine($"\nВы проиграли. Загаданное слово было: {word}.");
         }
     }
 }
