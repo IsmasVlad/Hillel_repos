@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34316.72
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DZ_12_1_Fibo", "DZ_12_1_Fibo.csproj", "{54F373C5-BD1B-49D4-AC4B-3BB4B9E18206}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54F373C5-BD1B-49D4-AC4B-3BB4B9E18206}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54F373C5-BD1B-49D4-AC4B-3BB4B9E18206}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54F373C5-BD1B-49D4-AC4B-3BB4B9E18206}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54F373C5-BD1B-49D4-AC4B-3BB4B9E18206}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A486B1F6-B95A-4BB7-9799-4781F85CE111}
+	EndGlobalSection
+EndGlobal
